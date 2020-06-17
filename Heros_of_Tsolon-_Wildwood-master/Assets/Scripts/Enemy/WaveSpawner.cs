@@ -34,6 +34,18 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveNum = 0;
 
+    public int WaveNum
+    {
+        get
+        {
+            return waveNum;
+        }
+        set
+        {
+            waveNum = value;
+        }
+    }
+
     public void Start()
     {
         enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");

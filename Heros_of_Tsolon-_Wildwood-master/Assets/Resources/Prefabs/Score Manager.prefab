@@ -48,8 +48,10 @@ MonoBehaviour:
   livesText: {fileID: 0}
   scoreText: {fileID: 0}
   enemiesLeftText: {fileID: 0}
+  waveText: {fileID: 0}
   data:
     coinScore: 0
     hordeScore: 0
     livesScore: 0
     playerScore: 0
+    waveScore: 0

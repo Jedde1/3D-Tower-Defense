@@ -8,7 +8,8 @@ public enum ScoreType
     Coin,
     Horde,
     Lives,
-    Player
+    Player,
+    Waves
 }
 
 [System.Serializable]
@@ -18,6 +19,7 @@ public class ScoreData
     public int hordeScore;
     public int livesScore;
     public int playerScore;
+    public int waveScore;
 }
 
 public class ScoreManager : MonoBehaviour
@@ -35,6 +37,7 @@ public class ScoreManager : MonoBehaviour
     public Text livesText;
     public Text scoreText;
     public Text enemiesLeftText;
+    public Text waveText;
 
     public ScoreData data = new ScoreData();
 
@@ -50,6 +53,8 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Score: " + data.playerScore;
 
         enemiesLeftText.text = "Enemies Remaining: " + WaveSpawner.Instance.EnemiesAlive;
+
+        waveText.text = "Wave: " + WaveSpawner.Instance.WaveNum;
     }
 
     public void CheckHighScore()
@@ -65,6 +70,7 @@ public class ScoreManager : MonoBehaviour
             case ScoreType.Horde: data.hordeScore += scoreToAdd; return;
             case ScoreType.Lives: data.livesScore += scoreToAdd; return;
             case ScoreType.Player: data.playerScore += scoreToAdd; return;
+            case ScoreType.Waves: data.waveScore += scoreToAdd; return;
         }
     }
     public void RemoveScore(int scoreToRemove, ScoreType type)
@@ -75,6 +81,7 @@ public class ScoreManager : MonoBehaviour
             case ScoreType.Horde: data.hordeScore -= scoreToRemove; return;
             case ScoreType.Lives: data.livesScore -= scoreToRemove; return;
             case ScoreType.Player: data.playerScore -= scoreToRemove; return;
+            case ScoreType.Waves: data.waveScore -= scoreToRemove; return;
         }
     }
 
@@ -86,6 +93,7 @@ public class ScoreManager : MonoBehaviour
             case ScoreType.Horde: return data.hordeScore;
             case ScoreType.Lives: return data.livesScore;
             case ScoreType.Player: return data.playerScore;
+            case ScoreType.Waves: return data.waveScore;
         }
         // Otherwise Error
         return -1;
