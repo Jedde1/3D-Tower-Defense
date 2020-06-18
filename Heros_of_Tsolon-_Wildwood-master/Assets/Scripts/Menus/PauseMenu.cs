@@ -5,11 +5,11 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public bool isPaused;
-    private GameObject _pauseMenu;
+    public GameObject _pauseMenu;
     // Update is called once per frame
     void Start()
     {
-        _pauseMenu = GameObject.FindGameObjectWithTag("Pausemenu");
+        
         isPaused = false;//not pasued 
         Time.timeScale = 1;//start time
         _pauseMenu.SetActive(false);//hide pause menu
@@ -25,16 +25,17 @@ public class PauseMenu : MonoBehaviour
 
     public void TogglePause()
     {
+        isPaused = !isPaused;
         if (isPaused)//is true if it is active
         {
-            _pauseMenu.SetActive(false);//show pause menu
-            isPaused = true;//not pasued 
+            _pauseMenu.SetActive(true);//show pause menu
+            
             Time.timeScale = 0;//start time
         }
         else//is false if it is active
         {
-            _pauseMenu.SetActive(true);//hide pause menu
-            isPaused = false;//we are pasued
+            _pauseMenu.SetActive(false);//hide pause menu
+            
             Time.timeScale = 1;//stop time
         }
     }
