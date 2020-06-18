@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LivesCounter : MonoBehaviour
 {
+    
     public void OnTriggerEnter(Collider other)
     {
         // When the enmey gets the the end
